@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.js"
+        integrity="sha512-5J08Lq3B2EfuPrNSYckUPHKYHaUhCQ4MdeObdcR0YZnr8eapZ7XMA2ejUyQYpWN+fwO48wuxsL5KDZYIVVVxvg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <link rel="stylesheet" href="style.css">
+
+<style>
+    body{
+        background-image: url(https://wallpapershome.com/images/wallpapers/macos-big-sur-1280x720-dark-wwdc-2020-22655.jpg);
+    }
+</style>
+    
+</head>
+
+<body ng-app="app">
+    <div ui-view>
+
+        <div class="video-bg" ng-controller="main">
+            <video width="100%" height="100%" autoplay loop muted>
+             <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4">
+           Your browser does not support the video tag.
+           </video>
+           </div>
+           
+           <div class="app">
+            <div class="header">
+             <div class="menu-circle"></div>
+             <div class="header-menu">
+                <a class="menu-link is-active" href="index.html">Skill Eliters </a>
+                <a class="menu-link notify"  href="hackathons.html">Hackathons </a>
+              <a class="menu-link" href="internships.html">Internships </a>
+              <a class="menu-link" href="https://github.com/Skill-Eliters/Tech_Resources"> Resources </a>
+              <a class="menu-link notify" href="Blogs.html">Blogs</a>
+             </div>
+             
+             <div class="header-profile">
+              
+              
+              <img class="profile-img" src="https://skill-eliters.netlify.app/stamp.png" alt="">
+             </div>
+            </div>
+            <div class="wrapper">
+            <div id="maincontent1">
+                <h1 id="mainline1"> Our One-Stop Portal for Unlocking a World of Opportunities</h1>
+            </div>
+            <div id="maincontent2">
+                 <div class="mainbox1"> <a href="https://github.com/Skill-Eliters/Tech_Resources"> <img src="img/Screenshot 2023-09-01 at 12.11.12 AM.png" alt="" srcset="" class="imgused"></a>   </div>
+                 <div class="mainbox1"> <a href="internships.html"> <img src="img/Screenshot 2023-09-01 at 2.05.30 PM.png" alt="" srcset="" class="imgused"> </a> </div>
+                 <div class="mainbox1"> <a href="hackathons.html"> <img src="img/Screenshot 2023-09-01 at 2.06.13 PM.png" alt="" srcset="" class="imgused"> </a> </div>
+                 <div class="mainbox1"> <a href="Blogs.html"> <img src="img/Screenshot 2023-09-01 at 2.06.43 PM.png" alt="" srcset="" class="imgused"> </a> </div>
+                 <div class="mainbox1"> <a href="https://www.linkedin.com/pulse/networking-age-covid-19-top-linkedin-profile-tips-karen-tisdell/"> <img src="img/Screenshot 2023-09-01 at 2.05.04 PM.png" alt="" srcset="" class="imgused"> </a> </div>
+            </div>
+             
+            </div>
+            <div class="overlay-app"></div>
+           </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+   <script src="revise.js"></script>
+
+   <script>
+    $(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+</script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="sweetalert2.all.min.js"></script> -->
+</body>
+
+</html>
